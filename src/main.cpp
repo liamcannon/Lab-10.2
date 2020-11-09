@@ -48,6 +48,11 @@ int main(int argc, char *argv[], char* env[])
     if(optErr) {
         return EXIT_FAILURE;
     }
+
+    // all is good here
+
+    
+
     cout << "The count is: " << kmlValue << " and the logfile is: "<< logValue << endl;
     cout << "optErr: " << optErr << endl;
     return EXIT_SUCCESS;
