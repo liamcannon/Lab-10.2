@@ -1,15 +1,19 @@
 #include <iostream>
+#include <pwd.h>
+#include <unistd.h>
+#include <libgen.h>
 
 using namespace std;
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[], char* env[])
 {
-    cout << "count of arguments: " << argc << endl;
-    cout << "argument vector item 1: " << argv[0] << endl;
-    for(int i = 0; i < argc; i++) {
-        cout << argv[i] << endl;
-    }
+    passwd *pws;
+    pws = getpwuid(geteuid());
+    cout << "user is: " << pws->pw_name << " userid is: "<< pws->pw_uid << endl;
 
-    cout << "Lab 10.2 Demo" << endl;
+    pid_t pid = getpid();
+    string programName = basename(argv[0]);
+    cout << "the pid of: " << programName << " is: " << pid << endl;
+
     return EXIT_SUCCESS;
 }
