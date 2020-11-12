@@ -1,1 +1,1 @@
-Wed Nov 11 23:54:47 2020 Liams-MacBook-Pro.local main[48808]: The kmlfile is: concap.csv and the logfile is: mylogfile.txt
+Wed Nov 11 23:57:39 2020 Liams-MacBook-Pro.local main[49093]: The kmlfile is: concap.csv and the logfile is: mylogfile.txt

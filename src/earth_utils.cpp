@@ -21,6 +21,7 @@ int processCSV(std::ifstream &inFile, std::string kmlFileName)
     if (inFile)
     {
         getline(inFile, strLine);
+        ofstream kmlFile(kmlFileName);
 
         while (getline(inFile, strLine))
         {
@@ -31,6 +32,8 @@ int processCSV(std::ifstream &inFile, std::string kmlFileName)
             getline(sstream, strLat, ',');
             getline(sstream, strLong, ',');
             //cout << strCountry << "~" << strCapital << strLat << "~" << strLong << endl;
+            writePlacemark(kmlFile, strCapital + ", " + strCountry, strLat, strLong);
+            recordCount++;
         }
     }
     return recordCount;
