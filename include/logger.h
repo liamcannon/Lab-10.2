@@ -20,7 +20,10 @@
  * @return returns a boolean inducating the message was written ok
  * @param msg std:string containing syslog msg
  * @param logFile ofstream reference, validation of this file is expected
+ * @param programName std::String containing the program name;
 */
-bool log(std::string msg, std::ofstream& logFile);
+bool log(std::string msg, std::string programName, std::ofstream& logFile);
 
+
+const int MAX_LEN = 30;
 #endif

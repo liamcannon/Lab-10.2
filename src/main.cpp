@@ -2,10 +2,13 @@
 #include <pwd.h>
 #include <unistd.h>
 #include <libgen.h>
+#include <sstream>
+#include <logger.h>
+#include <earth_utils.h>
 
 using namespace std;
 
-int main(int argc, char *argv[], char* env[])
+int main(int argc, char *argv[])
 {
     int opt{};
     bool kmlFlag{false};
@@ -13,11 +16,13 @@ int main(int argc, char *argv[], char* env[])
     string logValue;
     string kmlValue;
     bool optErr = true;
-    while((opt = getopt(argc, argv, "c:k:")) != EOF) {
+    string programName = basename(argv[0]);
+
+    while((opt = getopt(argc, argv, "k:l:")) != EOF) {
         switch(opt) {
             case 'k':
                 kmlFlag = true;
-                kmlValue = atoi(optarg);
+                kmlValue = optarg;
                 break;
             case 'l':
                 logFlag = true;
@@ -53,7 +58,26 @@ int main(int argc, char *argv[], char* env[])
 
     
 
-    cout << "The count is: " << kmlValue << " and the logfile is: "<< logValue << endl;
+    cout << "The kml file is: " << kmlValue << " and the logfile is: "<< logValue << endl;
     cout << "optErr: " << optErr << endl;
+
+    ofstream logFile(logValue);
+    log("The kmlfile is: " + kmlValue + " and the logfile is: " + logValue, programName, logFile);
+
+    ifstream fileIn(kmlValue);
+    if(fileIn) {
+        int recordCount = processCSV(fileIn, kmlValue + ".kml");
+        fileIn.close();
+        if(recordCount) {
+            cout << recordCount << "records processed" << endl;
+            optErr = false;
+        }
+        else {
+            optErr = true;
+        }
+    }
+    else {
+        optErr = true;
+    }
     return EXIT_SUCCESS;
 }

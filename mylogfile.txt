@@ -1,0 +1,1 @@
+Wed Nov 11 23:20:48 2020 Liams-MacBook-Pro.local main[46569]: The kmlfile is: mykmlfile.csv and the logfile is: mylogfile.txt
