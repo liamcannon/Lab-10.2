@@ -79,5 +79,5 @@ int main(int argc, char *argv[])
     else {
         optErr = true;
     }
-    return EXIT_SUCCESS;
+    return optErr;
 }

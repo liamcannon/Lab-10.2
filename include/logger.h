@@ -22,7 +22,7 @@
  * @param logFile ofstream reference, validation of this file is expected
  * @param programName std::String containing the program name;
 */
-bool log(std::string msg, std::string programName, std::ofstream& logFile);
+bool log(std::string msg, std::string programName,std::ofstream& logFile);
 
 
 const int MAX_LEN = 30;
