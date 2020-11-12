@@ -12,6 +12,8 @@
 #define EARTH_UTILS_H
 #include <string>
 #include <fstream>
+#include <iostream>
+#include <sstream>
 
 /**
  * @brief Lecture 10.2 
@@ -23,5 +25,5 @@
 */
 int processCSV(std::ifstream& inFile, std::string kmlFileName);
 
-//int WritePlacemark(std::ofstream& kmlFile, std::string name, std::string lat, std::string long);
+void writePlacemark(std::ofstream& kmlFile, std::string name, std::string lat, std::string lon);
 #endif
