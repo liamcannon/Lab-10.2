@@ -1,3 +1,6 @@
+<?xml version="1.o" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
 <Placemark>
 <name>
 Hargeisa, Somaliland</name>
@@ -1223,3 +1226,5 @@ Diego Garcia, British Indian Ocean Territory</name>
 N/A, Macau</name>
 <Point><coordinates>0.000000,0</coordinates></Point>
 </Placemark>
+</Document>
+</kml>

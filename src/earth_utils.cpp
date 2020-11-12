@@ -22,6 +22,7 @@ int processCSV(std::ifstream &inFile, std::string kmlFileName)
     {
         getline(inFile, strLine);
         ofstream kmlFile(kmlFileName);
+        kmlFile << KML_OPEN_TAG;
 
         while (getline(inFile, strLine))
         {
@@ -35,22 +36,12 @@ int processCSV(std::ifstream &inFile, std::string kmlFileName)
             writePlacemark(kmlFile, strCapital + ", " + strCountry, strLat, strLong);
             recordCount++;
         }
+        kmlFile << KML_CLOSE_TAG;
     }
     return recordCount;
 }
 
 void writePlacemark(std::ofstream &kmlFile, std::string name, std::string lat, std::string lon)
 {
-    const string KML_OPEN_TAG = "<?xml version=\"1.o\" encoding=\"UTF-8\"?>\n"
-                          "<kml xmlns=\"http://www.opengis.net/kml/2.2\" xmlns:gx=\"http://www.google.com/kml/ext/2.2\" xmlns:kml=\"http://www.opengis.net/kml/2.2\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n"
-                          "<Document>\n";
-    const string KML_CLOSE_TAG = "</Document>\n</kml>";
-    const string PLACEMARK_OPEN_TAG = "<Placemark>\n";
-    const string PLACEMARK_CLOSE_TAG = "</Placemark>\n";
-    const string NAME_OPEN_TAG = "<name>\n";
-    const string NAME_CLOSE_TAG = "</name>\n";
-    const string POINT_COORD_OPEN = "<Point><coordinates>";
-    const string POINT_COORD_CLOSE = "</coordinates></Point>\n";
-
     kmlFile << PLACEMARK_OPEN_TAG << NAME_OPEN_TAG << name << NAME_CLOSE_TAG << POINT_COORD_OPEN << lon << "," << lat << POINT_COORD_CLOSE << PLACEMARK_CLOSE_TAG;
 }

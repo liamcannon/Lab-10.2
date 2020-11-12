@@ -1,0 +1,1 @@
+Thu Nov 12 00:05:08 2020 Liams-MacBook-Pro.local main[49661]: The kmlfile is: concap.csv and the logfile is: mylogfile.txt
